@@ -1,12 +1,17 @@
-import { Component, signal } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { Component } from '@angular/core';
+import {ActiveUser} from './components/active-user';
 
+// Control flow
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
-  templateUrl: './app.html',
-  styleUrl: './app.css'
+  template: `
+    <p>Home</p>
+    <hr>
+
+    <app-active-user />
+  `,
+  imports: [
+    ActiveUser
+  ]
 })
-export class App {
-  protected readonly title = signal('formazione-ic-ottobre-2025');
-}
+export class App {}
