@@ -4,6 +4,9 @@
   "newProjectRoot": "projects",
   "projects": {
     "formazione-ic-ottobre-2025": {
+      "i18n": {
+        "sourceLocale": "it"
+      },
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -14,9 +17,6 @@
           "builder": "@angular/build:application",
           "options": {
             "browser": "src/main.ts",
-            "polyfills": [
-              "zone.js"
-            ],
             "tsConfig": "tsconfig.app.json",
             "assets": [
               {
@@ -26,6 +26,9 @@
             ],
             "styles": [
               "src/styles.css"
+            ],
+            "polyfills": [
+              "@angular/localize/init"
             ]
           },
           "configurations": {
@@ -72,7 +75,8 @@
           "options": {
             "polyfills": [
               "zone.js",
-              "zone.js/testing"
+              "zone.js/testing",
+              "@angular/localize/init"
             ],
             "tsConfig": "tsconfig.spec.json",
             "assets": [

@@ -1,17 +1,21 @@
-import { Component } from '@angular/core';
-import {ActiveUser} from './components/active-user';
+import {Component, inject} from '@angular/core';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
+import {User} from './models/user';
 
-// Control flow
 @Component({
   selector: 'app-root',
   template: `
-    <p>Home</p>
-    <hr>
-
-    <app-active-user />
   `,
   imports: [
-    ActiveUser
   ]
 })
-export class App {}
+export class App {
+
+  http = inject(HttpClient);
+
+  constructor() {
+
+    this.http.get<User[]>('https://jsonplaceholder.typicode.com/users')
+      .subscribe(console.log)
+  }
+}

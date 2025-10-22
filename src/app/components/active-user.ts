@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {Component, computed, signal} from '@angular/core';
 import {JsonPipe} from '@angular/common';
 
 interface User {
@@ -14,33 +14,31 @@ interface User {
   ],
   template: `
     <ul>
-      @for (user of users; track user.id) {
+      @for (user of users(); track user.id) {
         <li
-          (click)="selectedUserId = user.id"
-          [style.font-weight]="selectedUserId === user.id ? 'bold' : 'normal'"
+          (click)="selectedUserId.set(user.id)"
+          [style.font-weight]="selectedUserId() === user.id ? 'bold' : 'normal'"
         >{{ user.name }} {{ user.surname }}
         </li>
       }
     </ul>
-    Selected: {{ selectedUserId }}
+    Selected: {{ selectedUserId() }}
     <hr>
-    {{ selectedUser | json }}
+    {{ selectedUser() | json }}
   `
 })
 export class ActiveUser {
 
   // Stato
-  users: User[] = [
+  users = signal<User[]>([
     { id: 1, name: 'Michele', surname: 'Stieven' },
     { id: 2, name: 'Mario', surname: 'Rossi' },
-  ];
+  ]);
 
   // Stato
-  selectedUserId: User['id'] | null = null;
+  selectedUserId = signal<User['id'] | null>(null);
 
   // Stato derivato
-  get selectedUser() {
-    return this.users.find(user => user.id === this.selectedUserId);
-  }
+  selectedUser = computed(() => this.users().find(user => user.id === this.selectedUserId()));
 
 }
