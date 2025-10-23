@@ -4,8 +4,8 @@ import {Component, model} from '@angular/core';
   selector: 'app-counter',
   template: `
     <span [class.danger]="count() < 0">{{ count() }}</span>
-    <button (click)="inc()" aria-label="increment button">+</button>
-    <button (click)="dec()" aria-label="decrement button">-</button>
+    <button type="button" (click)="inc()" aria-label="increment button">+</button>
+    <button type="button" (click)="dec()" aria-label="decrement button">-</button>
   `,
   styles: `
     .danger {

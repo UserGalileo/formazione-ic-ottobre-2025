@@ -18,4 +18,3 @@ export class Highlight {
     this.el.nativeElement.style.backgroundColor = color;
   }
 }
-
