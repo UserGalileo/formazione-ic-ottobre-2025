@@ -1,6 +1,7 @@
 import {AbstractControl, NG_VALIDATORS, ValidationErrors, Validator, ValidatorFn} from '@angular/forms';
 import {Directive, input} from '@angular/core';
 
+// Factory Function
 export const forbiddenValidator = (forbiddenValue: any): ValidatorFn => (control) => {
   return control.value === forbiddenValue ? { forbidden: forbiddenValue } : null;
 }

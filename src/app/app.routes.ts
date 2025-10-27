@@ -9,7 +9,7 @@ export const routes: Routes = [
     path: '',
     component: Home,
     pathMatch: 'full',
-    canDeactivate: [canLeaveGuard]
+    canDeactivate: []
   },
   {
     path: 'bmi',
