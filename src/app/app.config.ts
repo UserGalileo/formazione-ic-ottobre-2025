@@ -7,7 +7,9 @@ import {
 import {provideRouter, withComponentInputBinding} from '@angular/router';
 
 import { routes } from './app.routes';
-import {provideHttpClient, withFetch} from '@angular/common/http';
+import {provideHttpClient, withFetch, withInterceptors} from '@angular/common/http';
+import {noopInterceptor} from './interceptors/noop.interceptor';
+import {cacheInterceptor} from './interceptors/cache.interceptor';
 
 export const APP_CONFIG = new InjectionToken<Record<string, any>>('APP_CONFIG');
 
@@ -23,6 +25,9 @@ export const appConfig: ApplicationConfig = {
         apiUrl: '/api'
       }
     },
-    provideHttpClient(withFetch())
+    provideHttpClient(
+      withFetch(),
+      withInterceptors([noopInterceptor, cacheInterceptor])
+    ),
   ]
 };
