@@ -1,5 +1,5 @@
 import {HttpEvent, HttpHandlerFn, HttpRequest} from '@angular/common/http';
-import {Observable} from 'rxjs';
+import {Observable, tap} from 'rxjs';
 
 export function noopInterceptor(
   req: HttpRequest<unknown>,

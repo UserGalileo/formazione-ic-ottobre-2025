@@ -53,7 +53,6 @@ import {Counter} from './counter';
     ForbiddenCredentialsValidator,
     ReactiveFormsModule,
     Counter,
-    JsonPipe
   ],
   styles: `
     .ng-dirty {

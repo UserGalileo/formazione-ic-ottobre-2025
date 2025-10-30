@@ -1,6 +1,5 @@
-import {afterEveryRender, afterNextRender, Component, ElementRef, viewChild, viewChildren} from '@angular/core';
-import {JsonPipe} from '@angular/common';
-import {Sum} from './sum';
+import {Component, ElementRef, viewChild} from '@angular/core';
+
 
 @Component({
   selector: 'app-card',
@@ -11,10 +10,6 @@ import {Sum} from './sum';
 
     <input type="text" #el (input)="onInput()">
   `,
-  imports: [
-    JsonPipe,
-    Sum
-  ],
   styles: `
     :host {
       display: block;

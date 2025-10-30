@@ -39,7 +39,7 @@ import {Address} from './address';
       <button>submit</button>
     </form>
   `,
-  imports: [ReactiveFormsModule, JsonPipe, Counter, Address]
+  imports: [ReactiveFormsModule, Counter, Address]
 })
 export class ReactiveForm {
 

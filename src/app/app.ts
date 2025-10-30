@@ -1,6 +1,5 @@
-import {Component, inject} from '@angular/core';
+import {Component} from '@angular/core';
 import {RouterLink, RouterLinkActive, RouterOutlet} from '@angular/router';
-import {Sum} from './components/sum';
 
 @Component({
   selector: 'app-root',
@@ -8,7 +7,6 @@ import {Sum} from './components/sum';
     <ul>
       <li><a routerLink="" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Home</a></li>
       <li><a routerLink="bmi" routerLinkActive="active">Bmi</a></li>
-      <li><a routerLink="counter" routerLinkActive="active">Counter</a></li>
       <li><a routerLink="users" routerLinkActive="active">Users</a></li>
     </ul>
     <hr>
@@ -19,7 +17,6 @@ import {Sum} from './components/sum';
     RouterOutlet,
     RouterLink,
     RouterLinkActive,
-    Sum
   ],
   styles: `
     .active {

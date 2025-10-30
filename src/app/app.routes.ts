@@ -17,10 +17,6 @@ export const routes: Routes = [
     providers: []
   },
   {
-    path: 'counter',
-    component: Counter
-  },
-  {
     path: 'users',
     loadChildren: () => import('./features/users/users.routes'),
     canActivate: [authGuard]

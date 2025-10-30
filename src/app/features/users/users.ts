@@ -22,5 +22,4 @@ import {RouterLink, RouterOutlet} from '@angular/router';
 export class Users {
 
   users = httpResource<User[]>(() => 'https://jsonplaceholder.typicode.com/users', { defaultValue: [] });
-
 }
